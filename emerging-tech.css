@@ -1,0 +1,782 @@
+/* =========================
+   EMERGING TECH PAGE
+========================= */
+
+.journey-page {
+  background: var(--beige);
+}
+
+.journey-container {
+  width: min(
+    calc(100% - 64px),
+    1296px
+  );
+
+  margin-inline: auto;
+}
+
+.journey-eyebrow {
+  margin: 0 0 24px;
+
+  color: var(--cobalt);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journey-back-link,
+.journey-text-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+
+  color: var(--cobalt);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  border-bottom:
+    1px solid currentColor;
+}
+
+.journey-page a:focus-visible,
+.journey-page button:focus-visible,
+.module-panel:focus-visible {
+  outline:
+    3px solid var(--cobalt);
+
+  outline-offset: 6px;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.journey-hero {
+  min-height: 100svh;
+  padding: 130px 0 80px;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+.journey-hero .journey-eyebrow,
+.journey-back-link {
+  color: var(--cobalt-light);
+}
+
+.journey-back-link {
+  margin-bottom: 72px;
+}
+
+.journey-hero h1 {
+  max-width: 1150px;
+  margin: 0;
+
+  font-size: clamp(
+    4rem,
+    9.5vw,
+    9.5rem
+  );
+
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+}
+
+.journey-hero h1 span {
+  display: block;
+
+  color: var(--cobalt-light);
+}
+
+.journey-hero-bottom {
+  margin-top: 78px;
+
+  display: grid;
+  grid-template-columns:
+    1fr 1fr;
+
+  align-items: end;
+  gap: clamp(50px, 9vw, 130px);
+}
+
+.journey-lead {
+  max-width: 650px;
+  margin: 0;
+
+  font-size: clamp(
+    1.2rem,
+    2vw,
+    1.75rem
+  );
+
+  line-height: 1.45;
+}
+
+.journey-facts {
+  margin: 0;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.journey-facts div {
+  padding-top: 14px;
+
+  border-top:
+    1px solid
+    rgba(247, 243, 236, 0.32);
+}
+
+.journey-facts dt {
+  margin-bottom: 10px;
+
+  color:
+    rgba(247, 243, 236, 0.55);
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journey-facts dd {
+  margin: 0;
+
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+
+/* =========================
+   PROGRAM INTRODUCTION
+========================= */
+
+.journey-introduction {
+  padding: 125px 0;
+
+  background: var(--beige);
+}
+
+.journey-intro-grid,
+.journey-closing-grid {
+  display: grid;
+  grid-template-columns:
+    0.65fr 1.35fr;
+
+  gap: clamp(50px, 10vw, 150px);
+}
+
+.journey-introduction h2,
+.module-section h2,
+.journey-closing h2 {
+  max-width: 950px;
+  margin: 0;
+
+  font-size: clamp(
+    2.7rem,
+    6vw,
+    6.5rem
+  );
+
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.journey-introduction
+.journey-intro-grid
+> div
+> p {
+  max-width: 700px;
+
+  font-size: clamp(
+    1.05rem,
+    1.5vw,
+    1.25rem
+  );
+
+  line-height: 1.58;
+}
+
+.journey-introduction h2 + p {
+  margin-top: 45px;
+}
+
+
+/* =========================
+   MODULE SECTION
+========================= */
+
+.module-section {
+  padding: 120px 0 135px;
+
+  background: var(--cream);
+}
+
+.module-section-heading {
+  margin-bottom: 90px;
+
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.module-instruction {
+  margin: 0 0 8px;
+
+  color: var(--grey);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   HORIZONTAL MODULE MAP
+========================= */
+
+.module-map {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    repeat(7, minmax(0, 1fr));
+
+  gap: 0;
+}
+
+.module-map::before {
+  content: "";
+
+  position: absolute;
+  top: 19px;
+  left: 7%;
+  right: 7%;
+
+  height: 2px;
+
+  background:
+    rgba(61, 79, 214, 0.28);
+}
+
+.module-point {
+  position: relative;
+  z-index: 2;
+
+  min-width: 0;
+  padding: 0 9px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--ink);
+  background: transparent;
+
+  border: 0;
+
+  font: inherit;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.module-dot {
+  width: 16px;
+  height: 16px;
+  margin: 12px 0 22px;
+
+  display: block;
+
+  background: var(--cream);
+
+  border:
+    2px solid var(--cobalt);
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.module-point:hover .module-dot {
+  transform: scale(1.25);
+}
+
+.module-point.is-active .module-dot {
+  background: var(--cobalt);
+
+  transform: scale(1.5);
+
+  box-shadow:
+    0 0 0 7px
+    rgba(61, 79, 214, 0.12);
+}
+
+.module-number {
+  margin-bottom: 10px;
+
+  color: var(--cobalt);
+
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.module-short-name {
+  max-width: 145px;
+
+  font-size: clamp(
+    0.72rem,
+    1vw,
+    0.9rem
+  );
+
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+
+  transition:
+    color 0.3s ease,
+    transform 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.module-point:hover .module-short-name,
+.module-point.is-active .module-short-name {
+  color: var(--cobalt);
+}
+
+.module-point.is-active .module-short-name {
+  transform: scale(1.06);
+}
+
+.module-selected-mark {
+  margin-top: 11px;
+  padding: 5px 7px;
+
+  color: var(--cream);
+  background: var(--cobalt);
+
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   MODULE INFORMATION
+========================= */
+
+.module-panels {
+  min-height: 430px;
+  margin-top: 58px;
+  padding-top: 48px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.module-panel[hidden] {
+  display: none;
+}
+
+.module-panel {
+  min-height: 320px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 0.85fr)
+    minmax(360px, 1.15fr);
+
+  gap: clamp(55px, 9vw, 130px);
+
+  animation:
+    module-zoom-in
+    0.55s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+.module-panel-heading {
+  align-self: start;
+}
+
+.module-panel-number {
+  margin: 0 0 25px;
+
+  color: var(--cobalt);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.module-panel h3 {
+  max-width: 600px;
+  margin: 0;
+
+  font-size: clamp(
+    2.5rem,
+    5vw,
+    5.5rem
+  );
+
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.module-panel-content {
+  max-width: 680px;
+}
+
+.module-panel-content > p {
+  line-height: 1.58;
+}
+
+.module-description {
+  margin-top: 0;
+
+  color: var(--cobalt);
+
+  font-size: clamp(
+    1.1rem,
+    1.7vw,
+    1.4rem
+  );
+
+  font-weight: 500;
+  line-height: 1.45 !important;
+}
+
+.module-focus-list {
+  margin: 35px 0 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+
+  list-style: none;
+}
+
+.module-focus-list li {
+  padding: 8px 12px;
+
+  border:
+    1px solid var(--line);
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.module-case-status {
+  margin-top: 38px;
+  padding-top: 18px;
+
+  color: var(--cobalt);
+
+  border-top:
+    2px solid var(--cobalt);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.journey-closing {
+  padding: 130px 0;
+
+  background: var(--beige);
+}
+
+.journey-closing h2 {
+  max-width: 1020px;
+}
+
+.journey-closing
+.journey-closing-grid
+> div
+> p {
+  max-width: 650px;
+  margin: 45px 0 40px;
+
+  font-size: clamp(
+    1.05rem,
+    1.5vw,
+    1.25rem
+  );
+
+  line-height: 1.58;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes module-zoom-in {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(18px)
+      scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================
+   TABLET AND MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+  .journey-container {
+    width: calc(100% - 40px);
+  }
+
+  .journey-hero {
+    min-height: auto;
+    padding: 112px 0 78px;
+  }
+
+  .journey-back-link {
+    margin-bottom: 58px;
+  }
+
+  .journey-hero h1 {
+    font-size: clamp(
+      3.8rem,
+      14vw,
+      7.5rem
+    );
+  }
+
+  .journey-hero-bottom {
+    margin-top: 58px;
+
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .journey-facts {
+    max-width: 700px;
+  }
+
+  .journey-introduction,
+  .journey-closing {
+    padding: 90px 0;
+  }
+
+  .journey-intro-grid,
+  .journey-closing-grid {
+    grid-template-columns: 1fr;
+
+    gap: 38px;
+  }
+
+  .module-section {
+    padding: 90px 0 105px;
+  }
+
+  .module-section-heading {
+    margin-bottom: 60px;
+
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+  /* Vertical module map */
+
+  .module-map {
+    padding-left: 0;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .module-map::before {
+    top: 20px;
+    bottom: 20px;
+    left: 9px;
+    right: auto;
+
+    width: 2px;
+    height: auto;
+  }
+
+  .module-point {
+    min-height: 82px;
+    padding: 16px 0 16px 42px;
+
+    display: grid;
+    grid-template-columns:
+      42px 1fr auto;
+
+    align-items: center;
+    gap: 10px;
+
+    text-align: left;
+
+    border-bottom:
+      1px solid var(--line);
+  }
+
+  .module-dot {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+
+    width: 16px;
+    height: 16px;
+    margin: 0;
+
+    transform: translateY(-50%);
+  }
+
+  .module-point:hover .module-dot {
+    transform:
+      translateY(-50%)
+      scale(1.25);
+  }
+
+  .module-point.is-active .module-dot {
+    transform:
+      translateY(-50%)
+      scale(1.4);
+  }
+
+  .module-number {
+    margin: 0;
+  }
+
+  .module-short-name {
+    max-width: none;
+
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .module-point.is-active
+  .module-short-name {
+    transform: none;
+  }
+
+  .module-selected-mark {
+    margin: 0;
+  }
+
+  .module-panels {
+    min-height: 0;
+    margin-top: 48px;
+  }
+
+  .module-panel {
+    min-height: 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 620px) {
+
+  .journey-hero h1 {
+    font-size: clamp(
+      3.4rem,
+      17vw,
+      5.4rem
+    );
+  }
+
+  .journey-facts {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .journey-introduction h2,
+  .module-section h2,
+  .journey-closing h2 {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4.5rem
+    );
+  }
+
+  .module-point {
+    grid-template-columns:
+      32px 1fr;
+
+    padding-left: 38px;
+  }
+
+  .module-selected-mark {
+    grid-column: 2;
+
+    width: fit-content;
+  }
+
+  .module-panel h3 {
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      4rem
+    );
+  }
+
+  .module-focus-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
