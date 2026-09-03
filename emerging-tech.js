@@ -89,21 +89,60 @@ function selectModule(
 
 
   /* Prepare information for GTM */
+/* Prepare information for GTM */
 
-  window.dataLayer.push({
-    event: "module_select",
+window.dataLayer.push({
+  event: "module_select",
 
-    module_number:
-      selectedButton.dataset.module,
+  module_number:
+    selectedButton.dataset.module,
 
-    course_name:
-      selectedButton.dataset.courseName,
+  course_name:
+    selectedButton.dataset.courseName,
 
-    selected_case:
-      selectedButton.classList.contains(
-        "selected-module"
-      )
+  selected_case:
+    selectedButton.classList.contains(
+      "selected-module"
+    )
+});
+
+
+/* Scroll to the information on mobile */
+
+if (
+  window.matchMedia(
+    "(max-width: 900px)"
+  ).matches &&
+  selectedPanel
+) {
+  window.requestAnimationFrame(() => {
+    const siteHeader =
+      document.querySelector(".site-header");
+
+    const headerHeight =
+      siteHeader
+        ? siteHeader.offsetHeight
+        : 64;
+
+    const panelPosition =
+      selectedPanel.getBoundingClientRect().top
+      + window.scrollY
+      - headerHeight
+      - 18;
+
+    const reducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+    window.scrollTo({
+      top: panelPosition,
+      behavior: reducedMotion
+        ? "auto"
+        : "smooth"
+    });
   });
+}
 
 }
 
