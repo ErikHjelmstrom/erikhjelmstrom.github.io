@@ -1037,6 +1037,48 @@ a.panel:hover .panel-link span {
   }
 }
 
+/* Clickable education course */
+
+.education-course-link {
+  margin: 8px 0;
+  padding: 10px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.education-course-link span:last-child {
+  color: var(--cobalt);
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition: transform 0.3s ease;
+}
+
+.education-course-link:hover {
+  padding-left: 8px;
+  color: var(--cobalt);
+}
+
+.education-course-link:hover span:last-child {
+  transform: translate(4px, -4px);
+}
+
+.education-course-link:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 5px;
+}
 
 /* Reduced motion accessibility */
 
