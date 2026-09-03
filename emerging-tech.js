@@ -88,7 +88,6 @@ function selectModule(
   }
 
 
-  /* Prepare information for GTM */
 /* Prepare information for GTM */
 
 window.dataLayer.push({
@@ -115,33 +114,12 @@ if (
   ).matches &&
   selectedPanel
 ) {
-  window.requestAnimationFrame(() => {
-    const siteHeader =
-      document.querySelector(".site-header");
-
-    const headerHeight =
-      siteHeader
-        ? siteHeader.offsetHeight
-        : 64;
-
-    const panelPosition =
-      selectedPanel.getBoundingClientRect().top
-      + window.scrollY
-      - headerHeight
-      - 18;
-
-    const reducedMotion =
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-    window.scrollTo({
-      top: panelPosition,
-      behavior: reducedMotion
-        ? "auto"
-        : "smooth"
+  window.setTimeout(() => {
+    selectedPanel.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
     });
-  });
+  }, 100);
 }
 
 }
