@@ -1,409 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-   })(window,document,'script','dataLayer','GTM-5JGFGJ9B');</script>
-  <!-- End Google Tag Manager -->
-   
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Portfolio of Erik Hjelmström — founder and Growth Marketing student in Stockholm."
-  >
-
-  <title>Erik Hjelmström — Portfolio</title>
-
-  <!-- FONT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Ecommerce tracking</title>
+<meta name="description" content="GA4 ecommerce exercises in Google Tag Manager: view_item_list, select_item, add_to_cart, begin_checkout and purchase.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/course.css">
+<script src="../assets/config.js"></script>
+<script src="../assets/course.js"></script>
 </head>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JGFGJ9B"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <a class="skip-link" href="#about">
-    Skip to content
-  </a>
+<a class="skip" href="#main">Skip to content</a>
 
-  <!-- MENU -->
-  <header class="site-header">
-    <a
-      class="site-name"
-      href="#top"
-      aria-label="Back to the start"
-    >
-      ERIK HJELMSTRÖM
-    </a>
+<nav aria-label="Breadcrumb">
+    <ul class="crumbs">
+        <li><a href="../index.html">Tag Manager course</a></li>
+        <li><a href="index.html" aria-current="page">Module 4</a></li>
+    </ul>
+</nav>
 
-    <nav
-      class="site-nav"
-      aria-label="Main navigation"
-    >
-      <a href="#about" data-section="about">
-        About
-      </a>
+<main id="main" class="wrap">
+<div class="bench">
+    <div class="column">
 
-      <a href="#work" data-section="work">
-        Work
-      </a>
-
-      <a href="#education" data-section="education">
-        Education
-      </a>
-
-      <a href="#contact" data-section="contact">
-        Contact
-      </a>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- LANDING PAGE -->
-    <section class="hero" id="top">
-
-      <!-- BLUE LINE ON LANDING PAGE -->
-      <svg
-        class="hero-thread"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          pathLength="1"
-          d="M -60 720
-             C 120 535, 265 835, 440 640
-             S 760 360, 785 565
-             C 805 745, 610 760, 500 1000"
-        />
-      </svg>
-
-      <div class="hero-meta">
-        <p>PORTFOLIO / 2026</p>
-        <p>STOCKHOLM, SWEDEN</p>
-      </div>
-
-      <div class="hero-content">
-        <p class="eyebrow">
-          FOUNDER / GROWTH MARKETING
-        </p>
-
-        <h1>
-          <span>Born to</span>
-          <span class="hero-accent">
-            Explore.
-          </span>
-        </h1>
-
-        <p class="hero-description">
-          Founder of Limano Explore.
-          <br>
-          Studying Growth Marketing at Berghs.
-        </p>
-      </div>
-
-      <a
-        class="scroll-indicator"
-        href="#about"
-      >
-        <span>Scroll to explore</span>
-        <span aria-hidden="true">↓</span>
-      </a>
-    </section>
-
-    <!--
-      NORMAL VERTICAL SCROLL CONTROLS
-      THE HORIZONTAL MOVEMENT
-    -->
-    <section
-      class="horizontal-section"
-      aria-label="Portfolio overview"
-    >
-      <div class="horizontal-sticky">
-
-        <!-- PROGRESS LINE UNDER MENU -->
-        <div
-          class="horizontal-progress"
-          aria-hidden="true"
-        >
-          <span></span>
+        <div class="ex-meta">
+            <span class="ex-no">Module 4</span>
+            <span>One long exercise</span>
+            <span>About an hour</span>
         </div>
 
-        <div class="horizontal-track">
+        <h1>Ecommerce tracking</h1>
+        <p class="lede">A working shop that pushes the six GA4 ecommerce events. You build the tags that catch them.</p>
 
-          <!-- BLUE HORIZONTAL LINE -->
-          <svg
-            class="horizontal-thread"
-            viewBox="0 0 4000 1000"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              pathLength="1"
-              d="M 500 0
-                 C 500 220, 640 330, 870 455
-                 S 1280 565, 1580 475
-                 S 2120 380, 2440 525
-                 S 2980 650, 3270 490
-                 S 3700 375, 4060 535"
-            />
-          </svg>
+        <h2>What makes ecommerce different</h2>
+        <p>Every event so far carried a few loose keys. Ecommerce events carry a strict structure that GA4 recognises
+            by shape, not by name. Get the shape wrong and the event arrives with no products in it — no error, no
+            warning, just empty reports.</p>
 
-          <!-- ABOUT ERIK -->
-          <a
-            class="panel panel-about"
-            id="about"
-            href="about.html"
-          >
-            <div class="panel-topline">
-              <span>01 / ABOUT</span>
-              <span>ERIK HJELMSTRÖM</span>
-            </div>
+<pre><code>dataLayer.push({ <span class="tok-key">ecommerce</span>: <span class="tok-kw">null</span> });   <span class="tok-com">// clear the previous product first</span>
+dataLayer.push({
+  <span class="tok-key">event</span>: <span class="tok-str">'add_to_cart'</span>,
+  <span class="tok-key">ecommerce</span>: {
+    <span class="tok-key">currency</span>: <span class="tok-str">'SEK'</span>,
+    <span class="tok-key">value</span>: <span class="tok-kw">899</span>,
+    <span class="tok-key">items</span>: [{
+      <span class="tok-key">item_id</span>: <span class="tok-str">'SKU-101'</span>,
+      <span class="tok-key">item_name</span>: <span class="tok-str">'Blue running shoe'</span>,
+      <span class="tok-key">price</span>: <span class="tok-kw">899</span>,
+      <span class="tok-key">quantity</span>: <span class="tok-kw">1</span>
+    }]
+  }
+});</code></pre>
 
-            <div
-              class="panel-content panel-content-split"
-            >
-              <h2>
-                I’d rather test an idea
-                than leave it as a thought.
-              </h2>
-
-              <div class="panel-copy">
-                <p>
-                  I’m drawn to new ideas,
-                  clear points of view and
-                  building for the long term.
-                </p>
-
-                <span class="panel-link">
-                  More about me
-                  <span aria-hidden="true">↗</span>
-                </span>
-              </div>
-            </div>
-          </a>
-
-          <!-- LIMANO -->
-          <a
-            class="panel panel-limano"
-            id="work"
-            href="limano.html"
-          >
-            <div class="panel-topline">
-              <span>02 / SELECTED WORK</span>
-              <span>2025—ONGOING</span>
-            </div>
-
-            <div
-              class="panel-content panel-content-split"
-            >
-              <div>
-                <p class="panel-kicker">
-                  MY FIRST COMPANY
-                </p>
-
-                <h2>Limano Explore</h2>
-              </div>
-
-              <div class="panel-copy">
-                <p>
-                  An ongoing education in building
-                  a fashion brand from the ground up.
-                </p>
-
-                <p class="limano-statement">
-                  Designed to Remember.
-                </p>
-
-                <span class="panel-link">
-                  View ongoing case study
-                  <span aria-hidden="true">↗</span>
-                </span>
-              </div>
-            </div>
-
-            <div
-              class="limano-mark"
-              aria-hidden="true"
-            >
-              <span>LIMANO</span>
-              <span>EXPLORE</span>
-            </div>
-          </a>
-
-          <!-- EDUCATION -->
-        <section
-            class="panel panel-education"
-            id="education"
-          >
-          >
-            <div class="panel-topline">
-              <span>03 / EDUCATION</span>
-
-              <span class="status-label">
-                <span class="status-dot"></span>
-                CURRENTLY STUDYING
-              </span>
-            </div>
-
-            <div
-              class="panel-content education-content"
-            >
-              <h2>
-                Berghs +
-                <br>
-                Hyper Island
-              </h2>
-
-              <div class="education-list">
-                <div>
-                  <p class="education-school">
-                    BERGHS
-                  </p>
-
-                  <p>Growth Marketing</p>
-
-                  <p class="education-date">
-                    2026—2027 / MAY 2027
-                  </p>
-                </div>
-
-                <div>
-                  <p class="education-school">
-                    HYPER ISLAND
-                  </p>
-
-                  <a
-                      class="education-course-link"
-                      href="spotify-2035.html"
-                    >
-                      <span>Future Scenarios</span>
-                      <span aria-hidden="true">Explore case ↗</span>
-                    </a>
-
-                    <a
-                        class="education-course-link"
-                        href="emerging-tech.html"
-                      >
-                        <span>Emerging Tech for Creatives</span>
-
-                        <span aria-hidden="true">
-                          Explore journey ↗
-                        </span>
-                      </a>
-                </div>
-              </div>
-
-              <span class="panel-link">
-                Explore education and experiments
-                <span aria-hidden="true">↗</span>
-              </span>
-            </div>
-          </section>
-
-          <!-- FUTURE PROJECT -->
-          <article
-            class="panel panel-future"
-            id="future"
-          >
-            <div class="panel-topline">
-              <span>04 / NEXT</span>
-
-              <span class="status-label">
-                <span class="status-dot"></span>
-                IN PROGRESS
-              </span>
-            </div>
-
-            <div
-              class="panel-content future-content"
-            >
-              <p class="panel-kicker">
-                NEXT VENTURE
-              </p>
-
-              <h2>What comes next?</h2>
-
-              <p>
-                A space reserved for the next
-                idea worth building.
-              </p>
-            </div>
-          </article>
-
+        <div class="purpose">
+            <h2>Three rules for this module</h2>
+            <ul class="build-list">
+                <li>Everything lives inside one <code>ecommerce</code> object</li>
+                <li><code>items</code> is always an array, even for one product</li>
+                <li>Push <code>ecommerce: null</code> before every event, or the previous product comes along for the ride</li>
+            </ul>
         </div>
 
-        <p
-          class="horizontal-hint"
-          aria-hidden="true"
-        >
-          KEEP SCROLLING
-          <span>→</span>
-        </p>
-      </div>
-    </section>
-  </main>
+        <h2>The exercise</h2>
+        <ul class="exercises">
+            <li><a href="1-shop.html"><span class="n">4.1</span><span>Track a shop from listing to purchase</span><span class="what">Six events</span></a></li>
+        </ul>
 
- <!-- CONTACT -->
-<footer class="site-footer" id="contact">
-  <p class="footer-label">
-    LET’S MAKE SOMETHING HAPPEN
-  </p>
+        <h2>The six events you will see</h2>
+        <table class="settings">
+            <tr><th>view_item_list</th><td>The product grid appeared. Fires once on load.</td></tr>
+            <tr><th>select_item</th><td>Someone clicked a product in the list.</td></tr>
+            <tr><th>add_to_cart</th><td>A product went into the cart.</td></tr>
+            <tr><th>remove_from_cart</th><td>A product came back out.</td></tr>
+            <tr><th>begin_checkout</th><td>Checkout started. The whole cart is in <code>items</code>.</td></tr>
+            <tr><th>purchase</th><td>The order completed. Needs a <code>transaction_id</code>.</td></tr>
+        </table>
 
-  <h2>
-    Have an idea
-    <span>worth testing?</span>
-  </h2>
+        <div class="pager">
+            <span><a href="../03-url-parameters/index.html">Module 3</a></span>
+            <span><a href="1-shop.html">Exercise 4.1</a></span>
+        </div>
 
-  <div class="footer-bottom">
-    <p>ERIK HJELMSTRÖM © 2026</p>
-
-    <div class="footer-links">
-      <a href="mailto:erik@limanoexplore.com">
-        EMAIL — ERIK@LIMANOEXPLORE.COM
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/erikhjelmstrom"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LINKEDIN — ERIK HJELMSTRÖM ↗
-      </a>
     </div>
 
-    <a href="#top">
-      BACK TO TOP ↑
-    </a>
-  </div>
+    <div class="rail">
+        <div id="monitor"></div>
+    </div>
+</div>
+</main>
+
+<footer class="site">
+    <p><a href="../index.html">Tag Manager course</a> · <a href="../reference/glossary.html">Glossary</a></p>
 </footer>
 
-  <!-- JAVASCRIPT -->
-  <script src="script.js"></script>
 </body>
 </html>
