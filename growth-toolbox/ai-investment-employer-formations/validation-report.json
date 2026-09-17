@@ -1,0 +1,18 @@
+{
+  "period": "2015-2022",
+  "rows": 8,
+  "ai_2015_usd_bn": 9.300375,
+  "ai_2022_usd_bn": 61.185078,
+  "ai_change_percent": 557.9,
+  "formations_2015": 292062,
+  "formations_2022": 296531,
+  "formations_change_percent": 1.5,
+  "chartjs_sha256": "48444a82d4edcb5bec0f1965faacdde18d9c17db3063d042abada2f705c9f54a",
+  "checks": [
+    "complete annual rows",
+    "both 2015 indices equal 100",
+    "indices recomputed from originals",
+    "script rows match CSV",
+    "no forecast series used"
+  ]
+}

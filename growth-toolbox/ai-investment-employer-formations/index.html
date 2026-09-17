@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5JGFGJ9B');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="En datavisualisering och innehållsplan om privata AI-investeringar och nya arbetsgivarföretag i USA 2015–2022.">
+  <title>AI-investeringar och nya företag — Erik Hjelmström</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="data-case-page">
+  <!-- Google Tag Manager noscript -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JGFGJ9B" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager noscript -->
+
+  <a class="skip-link" href="#fraga">Hoppa till innehållet</a>
+
+  <header class="site-header">
+    <a class="site-name" href="../../index.html#top">ERIK HJELMSTRÖM</a>
+    <nav class="site-nav" aria-label="Huvudnavigation">
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#work">Work</a>
+      <a class="is-active" href="../../index.html#education">Education</a>
+      <a href="../../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="data-hero data-container" id="fraga">
+      <a class="data-back-link" href="../../growth-toolbox.html">← Tillbaka till Growth Toolbox</a>
+      <p class="data-eyebrow">DATAVISUALISERING + INNEHÅLLSPLAN / USA / 2015–2022</p>
+      <h1>AI-investeringar<br><span>och nya företag.</span></h1>
+      <div class="data-hero-copy">
+        <p class="data-question">Finns det ett samband mellan årliga investeringar i AI och antalet nya företag i USA?</p>
+        <p>För att undersöka frågan jämförs privata AI-investeringar med ett precist företagsmått: observerade arbetsgivarföretag som bildas inom fyra kvartal efter en EIN-ansökan. Åren avser ansökningskohorter, inte alla företag som startats under respektive kalenderår.</p>
+      </div>
+    </section>
+
+    <section class="data-chart-section" id="diagram" aria-labelledby="chart-heading">
+      <div class="data-section-head">
+        <div>
+          <p class="data-eyebrow">01 / UTVECKLINGEN</p>
+          <h2 id="chart-heading">Samma startpunkt.<br>Två olika rörelser.</h2>
+        </div>
+        <p class="data-index-note"><strong>Så läser du diagrammet</strong><br>Båda linjerna börjar på 100 år 2015. Ett värde på 150 betyder en ökning med 50 procent sedan 2015.</p>
+      </div>
+
+      <div class="data-chart-shell">
+        <div class="data-chart-wrap">
+          <canvas id="comparisonChart" role="img" aria-describedby="chart-summary chart-table"></canvas>
+        </div>
+        <p id="chart-summary" class="sr-only">AI-investeringarnas index ökade från 100 år 2015 till 658 år 2022. Index för observerade arbetsgivarföretag låg nära 100 genom perioden och var 102 år 2022. Båda serierna steg 2021 och sjönk 2022.</p>
+      </div>
+
+      <div class="data-finding" aria-label="Slutsats">
+        <p class="data-eyebrow">VAD VISAR DATAN?</p>
+        <p class="data-finding-main">Nej, antalet arbetsgivarföretag ökade inte i takt med AI-investeringarna.</p>
+        <p>AI-investeringarna växte med <strong>558&nbsp;%</strong> mellan 2015 och 2022. Antalet observerade arbetsgivarföretag ökade med <strong>1,5&nbsp;%</strong>. Serierna rörde sig åt samma håll 2021 och 2022, men deras långsiktiga utveckling var tydligt olika.</p>
+      </div>
+    </section>
+
+    <section class="data-method data-container" id="metod">
+      <div class="data-section-head data-section-head-single">
+        <div>
+          <p class="data-eyebrow">02 / VAD MÄTS?</p>
+          <h2>Jämförbart,<br>med tydliga gränser.</h2>
+        </div>
+      </div>
+
+      <div class="data-definitions">
+        <article>
+          <p class="data-number">01</p>
+          <h3>Privata AI-investeringar</h3>
+          <p>Årligt privat investeringsbelopp i AI-företag i USA enligt Stanford AI Index, baserat på Quid. Beloppen redovisas i miljarder USD. Källan anger inte att serien är inflationsjusterad.</p>
+        </article>
+        <article>
+          <p class="data-number">02</p>
+          <h3>Arbetsgivarföretag inom fyra kvartal</h3>
+          <p>Observerade företag som uppstår från en EIN-ansökan och får sin första löneskatt inom fyra kvartal. Årsvärdet är summan av Census månadsserier för ansökningskohorterna under året. Det omfattar arbetsgivarföretag, inte alla egenföretagare och inte bara ansökningar.</p>
+        </article>
+        <article>
+          <p class="data-number">03</p>
+          <h3>Index 2015 = 100</h3>
+          <p>Varje värde divideras med seriens eget värde 2015 och multipliceras med 100. Indexet jämför förändringstakten utan att blanda dollar och antal företag på två y-axlar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="data-limits">
+      <div>
+        <p class="data-eyebrow">03 / TOLKNING</p>
+        <h2>Samtidighet är inte orsak.</h2>
+      </div>
+      <div class="data-limits-copy">
+        <p>Diagrammet visar utveckling över tid, men bevisar inte att AI-investeringar orsakar fler eller färre arbetsgivarföretag. En gemensam tidstrend kan skapa ett skenbart samband.</p>
+        <p>AI-investeringar mäter finansiering, inte AI:s tekniska utveckling eller användning. Konjunktur, räntor och pandemin kan påverka båda serierna. Perioden är kort och företagsmåttet fångar bara verksamheter som blir arbetsgivare inom fyra kvartal.</p>
+      </div>
+    </section>
+
+    <section class="data-underlay data-container" aria-labelledby="data-heading">
+      <details>
+        <summary>
+          <span><span class="data-eyebrow">04 / UNDERLAG</span><strong id="data-heading">Visa originalvärden och index</strong></span>
+          <span aria-hidden="true" class="data-plus">+</span>
+        </summary>
+        <div class="data-table-actions">
+          <p>USA, årsdata. Belopp i miljarder USD och antal observerade arbetsgivarföretag.</p>
+          <a class="data-download" href="data/ai-investment-and-employer-formations-2015-2022.csv" download>LADDA NER CSV ↓</a>
+        </div>
+        <div class="data-table-scroll">
+          <table id="chart-table">
+            <caption class="sr-only">Originalvärden och index för diagrammets två serier 2015 till 2022.</caption>
+            <thead><tr><th>År</th><th>AI-investeringar<br>mdr USD</th><th>AI-index</th><th>Arbetsgivarföretag<br>antal</th><th>Företagsindex</th></tr></thead>
+            <tbody id="dataRows"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="data-sources data-container" id="kallor">
+      <p class="data-eyebrow">05 / KÄLLOR</p>
+      <div class="data-source-grid">
+        <div>
+          <h3>Stanford AI Index 2026</h3>
+          <p>Figur 4.2.11, ”Global private investment in AI by geographic area, 2013–25”. Källa i rapporten: Quid, 2025.</p>
+          <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">ÖPPNA RAPPORTEN ↗</a>
+          <a href="https://drive.google.com/uc?export=download&amp;id=15nqxRFDA4bTCiToicLsCjVyDY28FAnv9">HÄMTA FIGURDATA ↗</a>
+        </div>
+        <div>
+          <h3>U.S. Census Bureau BFS</h3>
+          <p>Ojusterad månadsserie BF4Q för USA, total sektor. Definition och metod från Business Formation Statistics.</p>
+          <a href="https://www.census.gov/econ/bfs/about_the_data.html" target="_blank" rel="noopener">LÄS OM DATAN ↗</a>
+        </div>
+        <div>
+          <h3>Dataperiod</h3>
+          <p>2015–2022. Slutåret styrs av den senaste hela årsserien med observerade BF4Q-värden, utan prognoser. Hämtat 15 september 2026.</p>
+          <a href="https://www.census.gov/econ/bfs/csv/bfs_monthly.csv" target="_blank" rel="noopener">CENSUS CSV ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-plan" id="innehallsplan" aria-labelledby="content-plan-heading">
+      <div class="content-plan-head data-container">
+        <p class="data-eyebrow">06 / INNEHÅLLSPLAN</p>
+        <h2 id="content-plan-heading">Från analys<br>till berättelse.</h2>
+        <p>En femdelad Instagram-karusell gör skillnaden i utvecklingstakt begriplig och leder den som vill veta mer vidare till diagrammet, metoden och källorna här på webbplatsen.</p>
+      </div>
+
+      <div class="content-plan-grid data-container">
+        <div class="phone-stage">
+          <p class="concept-label">INSTAGRAM-KONCEPT</p>
+
+          <div class="iphone" aria-label="iPhone med ett interaktivt Instagram-koncept">
+            <div class="iphone-side iphone-side-left" aria-hidden="true"></div>
+            <div class="iphone-side iphone-side-right" aria-hidden="true"></div>
+            <div class="iphone-screen">
+              <div class="dynamic-island" aria-hidden="true"></div>
+
+              <div class="status-bar" aria-hidden="true">
+                <span class="status-time">09:41</span>
+                <span class="status-icons">
+                  <svg viewBox="0 0 18 12"><path d="M1 10h2V7H1zm4 0h2V5H5zm4 0h2V3H9zm4 0h2V1h-2z" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 16 12"><path d="M1 4.5C5.1.8 10.9.8 15 4.5M3.6 7c2.7-2.3 6.1-2.3 8.8 0M6.5 9.5a3.6 3.6 0 0 1 5 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  <svg viewBox="0 0 25 12"><rect x=".75" y=".75" width="20" height="10.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2.5" y="2.5" width="16" height="7" rx="1.5" fill="currentColor"/><path d="M22 4v4c1.3-.2 2-.8 2-2s-.7-1.8-2-2z" fill="currentColor"/></svg>
+                </span>
+              </div>
+
+              <div class="instagram-scroll" id="instagramScroll">
+                <div class="instagram-appbar">
+                  <span class="instagram-wordmark">Instagram</span>
+                  <span class="instagram-app-icons" aria-hidden="true">♡　⌁</span>
+                </div>
+
+                <article class="instagram-post">
+                  <header class="post-header">
+                    <div class="profile-avatar" aria-hidden="true">EH</div>
+                    <div class="profile-copy">
+                      <strong>erikhjelmstrom</strong>
+                      <span>Stockholm, Sweden</span>
+                    </div>
+                    <button class="post-menu" type="button" disabled aria-label="Inläggsmeny, dekorativ i konceptet" title="Dekorativ i konceptet">•••</button>
+                  </header>
+
+                  <div class="carousel" id="instagramCarousel" tabindex="0" role="region" aria-roledescription="karusell" aria-label="Instagram-karusell med fem bilder">
+                    <div class="carousel-viewport">
+                      <div class="carousel-track" id="carouselTrack">
+                        <figure class="carousel-slide" role="group" aria-roledescription="bild" aria-label="1 av 5">
+                          <img src="assets/carousel/ai-carousel-01.png" width="350" height="438" alt="Karusellomslag med texten AI Boom. Startup Boom? i beige, elektriskt blått och orange.">
+                        </figure>
+                        <figure class="carousel-slide" role="group" aria-roledescription="bild" aria-label="2 av 5">
+                          <img src="assets/carousel/ai-carousel-02.png" width="350" height="438" loading="lazy" alt="Förklaring av måtten AI investment och new businesses på espressobrun bakgrund.">
+                        </figure>
+                        <figure class="carousel-slide" role="group" aria-roledescription="bild" aria-label="3 av 5">
+                          <img src="assets/carousel/ai-carousel-03.png" width="350" height="438" loading="lazy" alt="Linjediagram där AI-investeringarnas index stiger kraftigt medan index för nya arbetsgivarföretag ligger nära 100.">
+                        </figure>
+                        <figure class="carousel-slide" role="group" aria-roledescription="bild" aria-label="4 av 5">
+                          <img src="assets/carousel/ai-carousel-04.png" width="350" height="438" loading="lazy" alt="Jämförelse som visar plus 558 procent för AI-investeringar och plus 2 procent för nya arbetsgivarföretag.">
+                        </figure>
+                        <figure class="carousel-slide" role="group" aria-roledescription="bild" aria-label="5 av 5">
+                          <img src="assets/carousel/ai-carousel-05.png" width="350" height="438" loading="lazy" alt="Slutsats: More AI money. Not the same business boom. med hänvisning till data och källor.">
+                        </figure>
+                      </div>
+                    </div>
+
+                    <span class="carousel-counter" id="carouselCounter" aria-live="polite">1/5</span>
+                    <button class="carousel-arrow carousel-prev" id="carouselPrev" type="button" aria-label="Föregående bild" disabled>
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4-8 8 8 8"/></svg>
+                    </button>
+                    <button class="carousel-arrow carousel-next" id="carouselNext" type="button" aria-label="Nästa bild">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg>
+                    </button>
+                  </div>
+
+                  <div class="post-controls">
+                    <div class="post-actions">
+                      <button class="post-action" id="likeButton" type="button" aria-label="Gilla konceptinlägget" aria-pressed="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+                      </button>
+                      <button class="post-action is-decorative" type="button" disabled aria-label="Kommentera, dekorativ i konceptet" title="Dekorativ i konceptet">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.7 9.7 0 0 1-4-.9L3 21l1.7-4.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+                      </button>
+                      <button class="post-action" id="shareButton" type="button" aria-label="Dela analysen">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-9.6 20-2.2-8.2L2 10.6 22 2Z"/><path d="m10.2 13.8 5.2-5.2"/></svg>
+                      </button>
+                    </div>
+
+                    <div class="carousel-dots" id="carouselDots" aria-label="Välj karusellbild">
+                      <button class="is-active" type="button" aria-label="Visa bild 1" aria-current="true"></button>
+                      <button type="button" aria-label="Visa bild 2"></button>
+                      <button type="button" aria-label="Visa bild 3"></button>
+                      <button type="button" aria-label="Visa bild 4"></button>
+                      <button type="button" aria-label="Visa bild 5"></button>
+                    </div>
+
+                    <button class="post-action post-save" id="saveButton" type="button" aria-label="Spara konceptinlägget" aria-pressed="false">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18l-7-4-7 4V3Z"/></svg>
+                    </button>
+                  </div>
+
+                  <div class="post-caption" id="postCaption">
+                    <p><strong>erikhjelmstrom</strong> AI investment increased far faster than new employer businesses in the US between 2015 and 2022.</p>
+                    <p>See the interactive chart, method and sources: <a href="#diagram">open the analysis</a>.</p>
+                    <p class="post-meta">Instagram concept · no published engagement data</p>
+                    <p class="action-feedback" id="actionFeedback" role="status" aria-live="polite"></p>
+                  </div>
+                </article>
+              </div>
+
+              <div class="home-indicator" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <p class="phone-help">Svep över bilden, använd pilarna eller vänster/höger piltangent. Scrolla inuti telefonen för att läsa inläggstexten.</p>
+        </div>
+
+        <aside class="plan-details" aria-label="Innehållsplan för Instagram-karusellen">
+          <dl>
+            <div>
+              <dt>Syfte</dt>
+              <dd>Göra undersökningen begriplig och väcka intresse för att läsa vidare.</dd>
+            </div>
+            <div>
+              <dt>Målgrupp</dt>
+              <dd>Teknik- och ekonomiintresserade, entreprenörer och journalister.</dd>
+            </div>
+            <div>
+              <dt>Format</dt>
+              <dd>Instagram-karusell med fem bilder.</dd>
+            </div>
+            <div>
+              <dt>Budskap</dt>
+              <dd>AI-investeringar och företagsbildning har utvecklats i olika takt under den undersökta perioden.</dd>
+            </div>
+            <div>
+              <dt>Väg vidare</dt>
+              <dd>Karusellen leder till <a href="#diagram">diagrammet</a>, <a href="#metod">metoden</a> och <a href="#kallor">källorna</a> på hemsidan.</dd>
+            </div>
+          </dl>
+
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <p class="footer-label">LET’S MAKE SOMETHING HAPPEN</p>
+    <h2>Have an idea <span>worth testing?</span></h2>
+    <div class="footer-bottom">
+      <p>ERIK HJELMSTRÖM © 2026</p>
+      <div class="footer-links">
+        <a href="mailto:erik@limanoexplore.com">EMAIL — ERIK@LIMANOEXPLORE.COM</a>
+        <a href="https://www.linkedin.com/in/erikhjelmstrom" target="_blank" rel="noopener noreferrer">LINKEDIN — ERIK HJELMSTRÖM ↗</a>
+      </div>
+      <a href="#fraga">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
