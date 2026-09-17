@@ -1,3 +1,16 @@
+window.dataLayer = window.dataLayer || [];
+
+function pushPortfolioEvent(eventName, eventData = {}) {
+  window.dataLayer.push({
+    event: eventName,
+    ...eventData
+  });
+}
+
+pushPortfolioEvent("case_view", {
+  case_name: "ai_investment_employer_formations",
+  case_category: "growth_toolbox"
+});
 const rows = [
   { year: 2015, ai: 9.300375, firms: 292062, aiIndex: 100.00, firmIndex: 100.00 },
   { year: 2016, ai: 10.154276, firms: 287512, aiIndex: 109.18, firmIndex: 98.44 },
@@ -161,8 +174,18 @@ function updateCarousel(announce = true) {
 }
 
 function goToSlide(index) {
-  activeSlide = Math.max(0, Math.min(slideCount - 1, index));
+  const nextSlide = Math.max(0, Math.min(slideCount - 1, index));
+
+  if (nextSlide === activeSlide) return;
+
+  activeSlide = nextSlide;
   updateCarousel();
+
+  pushPortfolioEvent("carousel_slide_view", {
+    case_name: "ai_investment_employer_formations",
+    slide_number: activeSlide + 1,
+    slide_total: slideCount
+  });
 }
 
 if (carousel && carouselTrack && slideCount) {
@@ -278,4 +301,13 @@ shareButton?.addEventListener("click", async () => {
       actionFeedback.textContent = "Länken kunde inte delas i den här webbläsaren.";
     }
   }
+});
+
+const csvDownloadLink = document.querySelector(".data-download");
+
+csvDownloadLink?.addEventListener("click", () => {
+  pushPortfolioEvent("csv_download", {
+    case_name: "ai_investment_employer_formations",
+    file_name: "ai-investment-and-employer-formations-2015-2022.csv"
+  });
 });
