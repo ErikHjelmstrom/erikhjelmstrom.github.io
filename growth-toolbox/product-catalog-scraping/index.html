@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({
+        "gtm.start":new Date().getTime(),
+        event:"gtm.js"
+      });
+
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!="dataLayer" ? "&l="+l : "";
+
+      j.async=true;
+      j.src=
+        "https://www.googletagmanager.com/gtm.js?id="
+        +i+dl;
+
+      f.parentNode.insertBefore(j,f);
+    })(
+      window,
+      document,
+      "script",
+      "dataLayer",
+      "GTM-5JGFGJ9B"
+    );
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="A Node.js web scraping case transforming an ecommerce catalogue into a structured and validated dataset."
+  >
+
+  <title>
+    Product Catalogue Scraping | Erik Hjelmström
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="scraping-page">
+
+  <!-- Google Tag Manager noscript -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-5JGFGJ9B"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    >
+    </iframe>
+  </noscript>
+
+  <a class="skip-link" href="#case-content">
+    Skip to content
+  </a>
+
+  <header class="site-header">
+
+    <a class="site-name" href="../../index.html#top">
+      ERIK HJELMSTRÖM
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#work">Work</a>
+
+      <a
+        class="is-active"
+        href="../../index.html#education"
+      >
+        Education
+      </a>
+
+      <a href="../../index.html#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <main id="case-content">
+
+    <section class="scraping-hero" id="case-top">
+
+      <div class="scraping-container">
+
+        <a
+          class="scraping-back-link"
+          href="../../growth-toolbox.html"
+        >
+          ← Back to Growth Toolbox
+        </a>
+
+        <p class="scraping-eyebrow">
+          GROWTH TOOLBOX / DATA COLLECTION
+        </p>
+
+        <h1>
+          From HTML
+          <span>to structured data.</span>
+        </h1>
+
+        <div class="hero-bottom">
+
+          <p class="scraping-lead">
+            A Node.js web scraping exercise that transforms
+            a multi-page ecommerce catalogue into a clean,
+            reusable and validated CSV dataset.
+          </p>
+
+          <dl class="case-facts">
+
+            <div>
+              <dt>Source</dt>
+              <dd>Books to Scrape</dd>
+            </div>
+
+            <div>
+              <dt>Output</dt>
+              <dd>CSV dataset</dd>
+            </div>
+
+            <div>
+              <dt>Stack</dt>
+              <dd>Node.js · Cheerio</dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="case-section">
+
+      <div class="scraping-container two-column">
+
+        <p class="scraping-eyebrow">
+          01 / THE QUESTION
+        </p>
+
+        <div class="section-copy">
+
+          <h2>
+            Can a website catalogue become analysis-ready data?
+          </h2>
+
+          <p>
+            Product information is easy to read one page at
+            a time, but difficult to compare at scale. The
+            goal was to collect the complete catalogue and
+            turn repeated HTML elements into one consistent
+            data structure.
+          </p>
+
+          <p>
+            The exercise focuses on extraction, structure
+            and data quality rather than commercial findings.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="results-section">
+
+      <div class="scraping-container">
+
+        <p class="scraping-eyebrow">
+          02 / RESULT
+        </p>
+
+        <div class="result-grid">
+
+          <article>
+            <strong>1,000</strong>
+            <span>products collected</span>
+          </article>
+
+          <article>
+            <strong>50</strong>
+            <span>categories represented</span>
+          </article>
+
+          <article>
+            <strong>0</strong>
+            <span>validation errors</span>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="case-section method-section">
+
+      <div class="scraping-container">
+
+        <p class="scraping-eyebrow">
+          03 / THE METHOD
+        </p>
+
+        <h2>
+          From catalogue pages to one dataset.
+        </h2>
+
+        <ol class="method-list">
+
+          <li>
+            <span>01</span>
+            <h3>Map the catalogue</h3>
+            <p>
+              Visit every catalogue page and collect each
+              unique product URL.
+            </p>
+          </li>
+
+          <li>
+            <span>02</span>
+            <h3>Extract the fields</h3>
+            <p>
+              Open every product page and read the selected
+              information from its HTML structure.
+            </p>
+          </li>
+
+          <li>
+            <span>03</span>
+            <h3>Structure the data</h3>
+            <p>
+              Convert the values into consistent rows and
+              export them as a UTF-8 CSV file.
+            </p>
+          </li>
+
+          <li>
+            <span>04</span>
+            <h3>Validate the output</h3>
+            <p>
+              Check completeness, unique identifiers,
+              prices, ratings and product URLs.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <section class="dataset-section" id="dataset">
+
+      <div class="scraping-container dataset-grid">
+
+        <div>
+
+          <p class="scraping-eyebrow">
+            04 / THE DATASET
+          </p>
+
+          <h2>
+            Seven fields.
+            <br>
+            One reusable file.
+          </h2>
+
+          <p class="dataset-intro">
+            Each row represents one product and retains its
+            source URL for traceability.
+          </p>
+
+          <a
+            class="download-link"
+            id="scrapedDataDownload"
+            href="data/books-to-scrape-products.csv"
+            download
+          >
+            Download the scraped CSV
+            <span aria-hidden="true">↓</span>
+          </a>
+
+        </div>
+
+        <dl class="field-list">
+
+          <div>
+            <dt>title</dt>
+            <dd>Product name</dd>
+          </div>
+
+          <div>
+            <dt>category</dt>
+            <dd>Catalogue category</dd>
+          </div>
+
+          <div>
+            <dt>price_gbp</dt>
+            <dd>Listed price in GBP</dd>
+          </div>
+
+          <div>
+            <dt>rating_1_to_5</dt>
+            <dd>Displayed star rating</dd>
+          </div>
+
+          <div>
+            <dt>availability</dt>
+            <dd>Displayed stock status</dd>
+          </div>
+
+          <div>
+            <dt>upc</dt>
+            <dd>Unique product identifier</dd>
+          </div>
+
+          <div>
+            <dt>product_url</dt>
+            <dd>Traceable source page</dd>
+          </div>
+
+        </dl>
+
+      </div>
+
+    </section>
+
+    <section class="case-section validation-section">
+
+      <div class="scraping-container two-column">
+
+        <p class="scraping-eyebrow">
+          05 / VALIDATION
+        </p>
+
+        <div class="section-copy">
+
+          <h2>
+            Collection is only useful when it can be checked.
+          </h2>
+
+          <p>
+            A separate validation script tested the final
+            CSV before publication.
+          </p>
+
+          <ul class="validation-list">
+            <li>1,000 of 1,000 expected products found</li>
+            <li>1,000 unique UPC identifiers</li>
+            <li>No duplicate identifiers</li>
+            <li>No missing required fields</li>
+            <li>No invalid prices, ratings or URLs</li>
+          </ul>
+
+          <p class="validation-status">
+            <span aria-hidden="true"></span>
+            Validation passed
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="limitations-section">
+
+      <div class="scraping-container limitations-grid">
+
+        <div>
+
+          <p class="scraping-eyebrow">
+            06 / SOURCE & LIMITATIONS
+          </p>
+
+          <h2>
+            A technical exercise,
+            not a market study.
+          </h2>
+
+        </div>
+
+        <div class="limitations-copy">
+
+          <p>
+            The source is
+            <a
+              href="https://books.toscrape.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Books to Scrape ↗
+            </a>,
+            a demo ecommerce website created specifically
+            for practising web scraping.
+          </p>
+
+          <p>
+            The source states that prices and ratings are
+            randomly assigned. They cannot support claims
+            about real demand, customers or the book market.
+          </p>
+
+          <p>
+            The scraper also depends on the source website’s
+            current HTML structure. If that structure changes,
+            the extraction selectors may need to be updated.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="case-ending">
+
+      <div class="scraping-container">
+
+        <p class="scraping-eyebrow">
+          NEXT IN THE TOOLBOX
+        </p>
+
+        <h2>
+          From collected data
+          <span>to live API experiences.</span>
+        </h2>
+
+        <a
+          class="scraping-back-link"
+          href="../../growth-toolbox.html"
+        >
+          Explore Growth Toolbox →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+
+    <p class="footer-label">
+      LET’S MAKE SOMETHING HAPPEN
+    </p>
+
+    <h2>
+      Have an idea
+      <span>worth testing?</span>
+    </h2>
+
+    <div class="footer-bottom">
+
+      <p>ERIK HJELMSTRÖM © 2026</p>
+
+      <div class="footer-links">
+
+        <a href="mailto:erik@limanoexplore.com">
+          EMAIL — ERIK@LIMANOEXPLORE.COM
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/erikhjelmstrom"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LINKEDIN — ERIK HJELMSTRÖM ↗
+        </a>
+
+      </div>
+
+      <a href="#case-top">
+        BACK TO TOP ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      event: "case_view",
+      case_name: "product_catalog_scraping",
+      case_category: "growth_toolbox"
+    });
+
+    const downloadLink = document.getElementById(
+      "scrapedDataDownload"
+    );
+
+    downloadLink.addEventListener("click", () => {
+      window.dataLayer.push({
+        event: "csv_download",
+        case_name: "product_catalog_scraping",
+        file_name: "books-to-scrape-products.csv"
+      });
+    });
+  </script>
+
+</body>
+</html>

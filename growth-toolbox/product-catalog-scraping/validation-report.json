@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checked_at": "2026-09-17T15:00:07.489Z",
+  "source": "https://books.toscrape.com/",
+  "csv_file": "data/books-to-scrape-products-node.csv",
+  "expected_products": 1000,
+  "products_found": 1000,
+  "categories_found": 50,
+  "unique_upcs": 1000,
+  "duplicate_upcs": 0,
+  "invalid_prices": 0,
+  "invalid_ratings": 0,
+  "invalid_urls": 0,
+  "missing_fields": {
+    "title": 0,
+    "category": 0,
+    "price_gbp": 0,
+    "rating_1_to_5": 0,
+    "availability": 0,
+    "upc": 0,
+    "product_url": 0
+  }
+}

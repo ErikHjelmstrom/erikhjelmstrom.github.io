@@ -1,0 +1,15 @@
+{
+  "name": "product-catalog-scraping",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Educational web scraping project for the Berghs Growth Marketing portfolio.",
+  "scripts": {
+    "scrape": "node scraper.js",
+    "validate": "node validate.js",
+    "build:data": "npm run scrape && npm run validate"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "csv-parse": "^6.1.0"
+  }
+}
