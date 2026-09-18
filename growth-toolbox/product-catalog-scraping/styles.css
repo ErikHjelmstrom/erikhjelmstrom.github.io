@@ -367,6 +367,17 @@
   font-size: 1rem;
 }
 
+.dataset-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 42px;
+}
+
+.dataset-links .download-link {
+  margin-top: 0;
+}
 .field-list {
   margin: 0;
 }
