@@ -555,3 +555,67 @@ renderedProgress =
   targetProgress;
 
 requestRender();
+
+/* =========================
+   QUALIFIED PORTFOLIO VISIT
+========================= */
+
+window.dataLayer = window.dataLayer || [];
+
+let portfolioActiveSeconds = 0;
+let portfolioMaximumScroll = 0;
+let qualifiedPortfolioVisitSent = false;
+
+function updatePortfolioScrollProgress() {
+  const documentHeight =
+    document.documentElement.scrollHeight;
+
+  const visibleBottom =
+    window.scrollY + window.innerHeight;
+
+  portfolioMaximumScroll = Math.max(
+    portfolioMaximumScroll,
+    Math.min(
+      100,
+      Math.round(
+        (visibleBottom / documentHeight) * 100
+      )
+    )
+  );
+
+  checkQualifiedPortfolioVisit();
+}
+
+function checkQualifiedPortfolioVisit() {
+  if (
+    qualifiedPortfolioVisitSent ||
+    portfolioActiveSeconds < 30 ||
+    portfolioMaximumScroll < 50
+  ) {
+    return;
+  }
+
+  qualifiedPortfolioVisitSent = true;
+
+  window.dataLayer.push({
+    event: "qualified_portfolio_visit",
+    page_name: "portfolio_home",
+    active_seconds: portfolioActiveSeconds,
+    scroll_percent: portfolioMaximumScroll
+  });
+}
+
+window.addEventListener(
+  "scroll",
+  updatePortfolioScrollProgress,
+  { passive: true }
+);
+
+window.setInterval(() => {
+  if (document.visibilityState === "visible") {
+    portfolioActiveSeconds += 1;
+    checkQualifiedPortfolioVisit();
+  }
+}, 1000);
+
+updatePortfolioScrollProgress();
