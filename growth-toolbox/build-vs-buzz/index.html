@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({
+        "gtm.start":new Date().getTime(),
+        event:"gtm.js"
+      });
+
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!="dataLayer" ? "&l="+l : "";
+
+      j.async=true;
+      j.src=
+        "https://www.googletagmanager.com/gtm.js?id="
+        +i+dl;
+
+      f.parentNode.insertBefore(j,f);
+    })(
+      window,
+      document,
+      "script",
+      "dataLayer",
+      "GTM-5JGFGJ9B"
+    );
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Build vs Buzz compares recent GitHub building activity with Hacker News conversation around emerging technology topics."
+  >
+
+  <title>
+    Build vs Buzz | Erik Hjelmström
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="signal-page">
+
+  <!-- Google Tag Manager noscript -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-5JGFGJ9B"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    >
+    </iframe>
+  </noscript>
+
+  <a class="skip-link" href="#signal-content">
+    Skip to content
+  </a>
+
+  <header class="site-header">
+
+    <a class="site-name" href="../../index.html#top">
+      ERIK HJELMSTRÖM
+    </a>
+
+    <nav
+      class="site-nav"
+      aria-label="Main navigation"
+    >
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#work">Work</a>
+
+      <a
+        class="is-active"
+        href="../../index.html#education"
+      >
+        Education
+      </a>
+
+      <a href="../../index.html#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <main id="signal-content">
+
+    <section class="signal-hero" id="signal-top">
+
+      <div class="signal-container">
+
+        <a
+          class="signal-back-link"
+          href="../../growth-toolbox.html"
+        >
+          ← Back to Growth Toolbox
+        </a>
+
+        <p class="signal-eyebrow">
+          GROWTH TOOLBOX / LIVE API EXPERIMENT
+        </p>
+
+        <h1>
+          Build
+          <span>vs Buzz.</span>
+        </h1>
+
+        <div class="signal-hero-bottom">
+
+          <p class="signal-lead">
+            Search an emerging technology and compare
+            whether recent momentum appears in building
+            activity, online conversation, or both.
+          </p>
+
+          <dl class="signal-facts">
+
+            <div>
+              <dt>Build signal</dt>
+              <dd>GitHub repositories</dd>
+            </div>
+
+            <div>
+              <dt>Buzz signal</dt>
+              <dd>Hacker News stories</dd>
+            </div>
+
+            <div>
+              <dt>Window</dt>
+              <dd>30 days vs previous 30</dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="tool-section" id="tool">
+
+      <div class="signal-container">
+
+        <div class="tool-heading">
+
+          <div>
+            <p class="signal-eyebrow">
+              LIVE TOOL
+            </p>
+
+            <h2>
+              Test the signal.
+            </h2>
+          </div>
+
+          <p>
+            Enter a technology or emerging topic.
+            The app fetches current data from two APIs.
+          </p>
+
+        </div>
+
+        <div class="tool-shell">
+
+          <form
+            class="signal-form"
+            id="signalForm"
+          >
+
+            <label for="topicInput">
+              Technology or topic
+            </label>
+
+            <div class="search-row">
+
+              <input
+                id="topicInput"
+                name="topic"
+                type="search"
+                minlength="2"
+                maxlength="60"
+                placeholder="Try: AI agents"
+                autocomplete="off"
+                required
+              >
+
+              <button type="submit">
+                Compare signals
+                <span aria-hidden="true">→</span>
+              </button>
+
+            </div>
+
+          </form>
+
+          <div class="example-topics">
+
+            <span>Try an example:</span>
+
+            <button type="button" data-topic="AI agents">
+              AI agents
+            </button>
+
+            <button type="button" data-topic="voice AI">
+              Voice AI
+            </button>
+
+            <button type="button" data-topic="social commerce">
+              Social commerce
+            </button>
+
+          </div>
+
+          <p
+            class="app-status"
+            id="appStatus"
+            role="status"
+            aria-live="polite"
+          >
+            Ready to compare two live signals.
+          </p>
+
+          <section
+            class="result-panel"
+            id="resultPanel"
+            aria-labelledby="resultTopic"
+            hidden
+          >
+
+            <div class="result-header">
+
+              <div>
+
+                <p class="result-label">
+                  SIGNAL REPORT
+                </p>
+
+                <h3 id="resultTopic"></h3>
+
+                <p id="resultPeriod"></p>
+
+              </div>
+
+              <div class="profile-block">
+
+                <span>Signal profile</span>
+
+                <strong id="signalProfile">
+                  —
+                </strong>
+
+              </div>
+
+            </div>
+
+            <p
+              class="profile-description"
+              id="profileDescription"
+            >
+            </p>
+
+            <div class="signal-comparison">
+
+              <article class="signal-card build-card">
+
+                <div class="signal-card-header">
+
+                  <div>
+                    <p>BUILD SIGNAL</p>
+                    <h4>GitHub</h4>
+                  </div>
+
+                  <span>01</span>
+
+                </div>
+
+                <strong
+                  class="change-value"
+                  id="buildChange"
+                >
+                  —
+                </strong>
+
+                <p class="change-description">
+                  Change in newly created repositories
+                  compared with the previous 30 days.
+                </p>
+
+                <dl class="period-values">
+
+                  <div>
+                    <dt>Current</dt>
+                    <dd id="buildCurrent">—</dd>
+                  </div>
+
+                  <div>
+                    <dt>Previous</dt>
+                    <dd id="buildPrevious">—</dd>
+                  </div>
+
+                </dl>
+
+              </article>
+
+              <article class="signal-card buzz-card">
+
+                <div class="signal-card-header">
+
+                  <div>
+                    <p>BUZZ SIGNAL</p>
+                    <h4>Hacker News</h4>
+                  </div>
+
+                  <span>02</span>
+
+                </div>
+
+                <strong
+                  class="change-value"
+                  id="buzzChange"
+                >
+                  —
+                </strong>
+
+                <p class="change-description">
+                  Change in published stories compared
+                  with the previous 30 days.
+                </p>
+
+                <dl class="period-values">
+
+                  <div>
+                    <dt>Current</dt>
+                    <dd id="buzzCurrent">—</dd>
+                  </div>
+
+                  <div>
+                    <dt>Previous</dt>
+                    <dd id="buzzPrevious">—</dd>
+                  </div>
+
+                </dl>
+
+              </article>
+
+            </div>
+
+            <div
+              class="partial-warning"
+              id="partialWarning"
+              role="note"
+              hidden
+            >
+            </div>
+
+            <div class="source-results">
+
+              <section>
+
+                <div class="source-heading">
+                  <p>RECENT BUILD SIGNALS</p>
+                  <span>GitHub</span>
+                </div>
+
+                <ol id="buildResults"></ol>
+
+              </section>
+
+              <section>
+
+                <div class="source-heading">
+                  <p>RECENT BUZZ SIGNALS</p>
+                  <span>Hacker News</span>
+                </div>
+
+                <ol id="buzzResults"></ol>
+
+              </section>
+
+            </div>
+
+            <div class="result-footer">
+
+              <p id="githubRateLimit"></p>
+
+              <button
+                type="button"
+                id="newSearchButton"
+              >
+                New search
+              </button>
+
+            </div>
+
+          </section>
+
+          <section
+            class="error-panel"
+            id="errorPanel"
+            role="alert"
+            hidden
+          >
+
+            <p>THE SEARCH COULD NOT BE COMPLETED</p>
+
+            <h3>
+              Both data sources are currently unavailable.
+            </h3>
+
+            <p id="errorMessage">
+              Try again shortly or use a different search term.
+            </p>
+
+            <button type="button" id="retryButton">
+              Try again
+            </button>
+
+          </section>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="prototype-section">
+
+      <div class="signal-container prototype-grid">
+
+        <div>
+
+          <p class="signal-eyebrow">
+            01 / THE PROTOTYPE
+          </p>
+
+          <h2>
+            Four states before one line of live logic.
+          </h2>
+
+        </div>
+
+        <div>
+
+          <p>
+            The low-fidelity prototype mapped the complete
+            user journey before development: initial search,
+            loading, complete results and partial failure.
+          </p>
+
+          <p>
+            This made error handling and methodological
+            transparency part of the product rather than
+            additions at the end.
+          </p>
+
+          <a
+            class="text-link"
+            href="prototype.html"
+            target="_blank"
+          >
+            View the paper prototype ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="method-section">
+
+      <div class="signal-container">
+
+        <p class="signal-eyebrow">
+          02 / HOW IT WORKS
+        </p>
+
+        <h2>
+          Two sources.
+          <br>
+          One transparent profile.
+        </h2>
+
+        <ol class="method-list">
+
+          <li>
+
+            <span>01</span>
+
+            <h3>
+              Define equal periods
+            </h3>
+
+            <p>
+              The latest 30 days are compared with the
+              preceding 30 days for both sources.
+            </p>
+
+          </li>
+
+          <li>
+
+            <span>02</span>
+
+            <h3>
+              Measure within each source
+            </h3>
+
+            <p>
+              GitHub repository counts are compared only
+              with GitHub. Hacker News stories are compared
+              only with Hacker News.
+            </p>
+
+          </li>
+
+          <li>
+
+            <span>03</span>
+
+            <h3>
+              Describe the direction
+            </h3>
+
+            <p>
+              The direction of both changes creates a
+              descriptive signal profile without pretending
+              the units are equivalent.
+            </p>
+
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+    <section class="limits-section">
+
+      <div class="signal-container limits-grid">
+
+        <div>
+
+          <p class="signal-eyebrow">
+            03 / LIMITATIONS
+          </p>
+
+          <h2>
+            A signal,
+            not a verdict.
+          </h2>
+
+        </div>
+
+        <div class="limits-copy">
+
+          <p>
+            Repository creation and Hacker News stories do
+            not measure revenue, adoption or customer demand.
+            They are directional indicators of visible
+            activity on two specific platforms.
+          </p>
+
+          <p>
+            Search terms can also be ambiguous. Results
+            should be treated as a starting point for
+            further research, not proof that a market is
+            growing.
+          </p>
+
+          <p>
+            GitHub limits anonymous API requests. The app
+            reports partial results rather than inventing
+            missing values when one source is unavailable.
+          </p>
+
+          <div class="source-links">
+
+            <a
+              href="https://docs.github.com/en/rest/search/search"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Search API ↗
+            </a>
+
+            <a
+              href="https://hn.algolia.com/api"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hacker News Search API ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="signal-ending">
+
+      <div class="signal-container">
+
+        <p class="signal-eyebrow">
+          EXPERIMENTAL TOOL
+        </p>
+
+        <h2>
+          Read the signal.
+          <span>Question the conclusion.</span>
+        </h2>
+
+        <a
+          class="signal-back-link"
+          href="../../growth-toolbox.html"
+        >
+          Explore Growth Toolbox →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+
+    <p class="footer-label">
+      LET’S MAKE SOMETHING HAPPEN
+    </p>
+
+    <h2>
+      Have an idea
+      <span>worth testing?</span>
+    </h2>
+
+    <div class="footer-bottom">
+
+      <p>
+        ERIK HJELMSTRÖM © 2026
+      </p>
+
+      <div class="footer-links">
+
+        <a href="mailto:erik@limanoexplore.com">
+          EMAIL — ERIK@LIMANOEXPLORE.COM
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/erikhjelmstrom"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LINKEDIN — ERIK HJELMSTRÖM ↗
+        </a>
+
+      </div>
+
+      <a href="#signal-top">
+        BACK TO TOP ↑
+      </a>
+
+    </div>
+
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

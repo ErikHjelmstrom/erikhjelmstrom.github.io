@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checked_at": "2026-09-17T15:00:07.489Z",
+  "checked_at": "2026-09-18T11:57:53.171Z",
   "source": "https://books.toscrape.com/",
   "csv_file": "data/books-to-scrape-products-node.csv",
   "expected_products": 1000,

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Build vs Buzz — Low-fidelity prototype
+  </title>
+
+  <style>
+    :root {
+      --paper: #f4f1e8;
+      --ink: #171717;
+      --muted: #6b6964;
+      --line: #92908a;
+      --soft: #dedbd2;
+      --white: #fffefa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+
+      background: #cbc8c0;
+      color: var(--ink);
+
+      font-family:
+        "Courier New",
+        Courier,
+        monospace;
+    }
+
+    .prototype {
+      width: min(1500px, 100%);
+      margin-inline: auto;
+      padding: 40px;
+
+      background:
+        linear-gradient(
+          rgba(23, 23, 23, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(23, 23, 23, 0.035) 1px,
+          transparent 1px
+        ),
+        var(--paper);
+
+      background-size: 24px 24px;
+
+      border: 2px solid var(--ink);
+      box-shadow: 10px 10px 0 rgba(23, 23, 23, 0.16);
+    }
+
+    .prototype-header {
+      padding-bottom: 28px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .eyebrow,
+    .frame-label,
+    .annotation-label {
+      margin: 0;
+
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0 0;
+
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .prototype-note {
+      max-width: 470px;
+      margin: 0;
+
+      color: var(--muted);
+
+      line-height: 1.5;
+    }
+
+    .flow {
+      margin-top: 40px;
+
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 42px;
+    }
+
+    .frame {
+      position: relative;
+
+      min-height: 610px;
+      padding: 26px;
+
+      background: var(--white);
+      border: 2px solid var(--ink);
+
+      box-shadow: 6px 6px 0 var(--soft);
+    }
+
+    .frame::after {
+      content: "";
+
+      position: absolute;
+      right: -25px;
+      bottom: -18px;
+
+      width: 72px;
+      height: 24px;
+
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(23, 23, 23, 0.2);
+
+      transform: rotate(-4deg);
+    }
+
+    .frame-label {
+      margin-bottom: 28px;
+
+      color: var(--muted);
+    }
+
+    .wire-header {
+      padding-bottom: 18px;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wire-logo {
+      font-weight: 700;
+    }
+
+    .wire-status {
+      color: var(--muted);
+
+      font-size: 0.75rem;
+    }
+
+    .wire-content {
+      padding-top: 38px;
+    }
+
+    .wire-content h2 {
+      max-width: 560px;
+      margin: 0;
+
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .wire-content > p {
+      max-width: 600px;
+      margin: 24px 0;
+
+      color: var(--muted);
+
+      line-height: 1.55;
+    }
+
+    .search-row {
+      margin-top: 36px;
+
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    .fake-input,
+    .fake-button {
+      min-height: 54px;
+      padding: 15px 17px;
+
+      border: 2px solid var(--ink);
+
+      font: inherit;
+    }
+
+    .fake-input {
+      color: var(--muted);
+      background: white;
+    }
+
+    .fake-button {
+      min-width: 130px;
+
+      display: grid;
+      place-items: center;
+
+      background: var(--ink);
+      color: white;
+
+      font-weight: 700;
+    }
+
+    .example-row {
+      margin-top: 20px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .example-row span {
+      padding: 8px 10px;
+
+      border: 1px solid var(--line);
+
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .flow-note {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+
+      padding-top: 16px;
+
+      border-top: 1px dashed var(--line);
+
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .loading-box {
+      min-height: 330px;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+    }
+
+    .loading-box strong {
+      display: block;
+
+      font-size: 1.6rem;
+    }
+
+    .loading-box p {
+      margin-bottom: 0;
+
+      color: var(--muted);
+    }
+
+    .loading-lines {
+      width: min(380px, 100%);
+      margin: 32px auto 0;
+    }
+
+    .loading-lines span {
+      display: block;
+
+      height: 14px;
+      margin-bottom: 14px;
+
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          var(--soft),
+          var(--soft) 8px,
+          white 8px,
+          white 16px
+        );
+
+      border: 1px solid var(--line);
+    }
+
+    .loading-lines span:nth-child(2) {
+      width: 78%;
+    }
+
+    .loading-lines span:nth-child(3) {
+      width: 56%;
+    }
+
+    .result-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 24px;
+    }
+
+    .result-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .profile-label {
+      padding: 10px 12px;
+
+      border: 2px solid var(--ink);
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .signal-grid {
+      margin-top: 34px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .signal-card {
+      min-height: 205px;
+      padding: 20px;
+
+      border: 2px solid var(--ink);
+    }
+
+    .signal-card h3 {
+      margin: 0 0 28px;
+
+      font-size: 1rem;
+    }
+
+    .signal-value {
+      display: block;
+
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+    }
+
+    .signal-meta {
+      margin: 10px 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .source-preview {
+      margin-top: 18px;
+      padding: 16px;
+
+      border: 1px dashed var(--line);
+    }
+
+    .source-preview p {
+      margin: 0 0 8px;
+
+      font-size: 0.8rem;
+    }
+
+    .source-preview p:last-child {
+      margin-bottom: 0;
+    }
+
+    .warning {
+      margin-top: 34px;
+      padding: 20px;
+
+      border: 2px solid var(--ink);
+      border-left-width: 12px;
+    }
+
+    .warning h3 {
+      margin: 0 0 12px;
+    }
+
+    .warning p {
+      margin: 0;
+
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .retry-button {
+      width: fit-content;
+      margin-top: 22px;
+      padding: 13px 18px;
+
+      background: var(--ink);
+      color: white;
+
+      font-weight: 700;
+    }
+
+    .method-map {
+      margin-top: 44px;
+      padding-top: 34px;
+
+      border-top: 2px solid var(--ink);
+    }
+
+    .method-map h2 {
+      margin: 0 0 24px;
+
+      font-size: 1.25rem;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+    .method-grid article {
+      padding: 18px;
+
+      background: rgba(255, 254, 250, 0.75);
+      border: 1px solid var(--line);
+    }
+
+    .method-grid h3 {
+      margin: 0 0 12px;
+
+      font-size: 0.9rem;
+    }
+
+    .method-grid p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+
+      body {
+        padding: 16px;
+      }
+
+      .prototype {
+        padding: 22px;
+      }
+
+      .prototype-header,
+      .result-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .flow,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .search-row,
+      .signal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .frame {
+        min-height: 680px;
+        padding: 20px;
+      }
+
+    }
+
+    @media print {
+
+      @page {
+        size: A3 landscape;
+        margin: 10mm;
+      }
+
+      body {
+        padding: 0;
+
+        background: white;
+      }
+
+      .prototype {
+        width: 100%;
+        padding: 20px;
+
+        box-shadow: none;
+      }
+
+      .frame {
+        break-inside: avoid;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="prototype">
+
+    <header class="prototype-header">
+
+      <div>
+        <p class="eyebrow">
+          LOW-FIDELITY PAPER PROTOTYPE
+        </p>
+
+        <h1>
+          Build vs Buzz
+        </h1>
+      </div>
+
+      <p class="prototype-note">
+        A four-state prototype showing how GitHub and
+        Hacker News data could help distinguish building
+        activity from online conversation. No live data is
+        displayed in this prototype.
+      </p>
+
+    </header>
+
+    <section class="flow" aria-label="Prototype states">
+
+      <article class="frame">
+
+        <p class="frame-label">
+          STATE 01 / START
+        </p>
+
+        <div class="wire-header">
+          <span class="wire-logo">BUILD VS BUZZ</span>
+          <span class="wire-status">30-DAY SIGNAL</span>
+        </div>
+
+        <div class="wire-content">
+
+          <h2>
+            Is it being built,
+            or mostly discussed?
+          </h2>
+
+          <p>
+            Search for a technology or emerging topic.
+            We compare recent development activity with
+            recent conversation.
+          </p>
+
+          <div class="search-row">
+            <div class="fake-input">
+              e.g. AI agents
+            </div>
+
+            <div class="fake-button">
+              Compare
+            </div>
+          </div>
+
+          <div class="example-row">
+            <span>AI agents</span>
+            <span>social commerce</span>
+            <span>voice AI</span>
+          </div>
+
+        </div>
+
+        <p class="flow-note">
+          User enters one topic. Input is validated before
+          any API request is sent.
+        </p>
+
+      </article>
+
+      <article class="frame">
+
+        <p class="frame-label">
+          STATE 02 / LOADING
+        </p>
+
+        <div class="wire-header">
+          <span class="wire-logo">BUILD VS BUZZ</span>
+          <span class="wire-status">SEARCHING: AI AGENTS</span>
+        </div>
+
+        <div class="loading-box">
+
+          <div>
+
+            <strong>
+              Scanning two signals...
+            </strong>
+
+            <p>
+              GitHub build activity + Hacker News discussion
+            </p>
+
+            <div
+              class="loading-lines"
+              aria-hidden="true"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="flow-note">
+          Both APIs load in parallel. The interface remains
+          understandable while data is being fetched.
+        </p>
+
+      </article>
+
+      <article class="frame">
+
+        <p class="frame-label">
+          STATE 03 / COMPLETE RESULT
+        </p>
+
+        <div class="wire-header">
+          <span class="wire-logo">BUILD VS BUZZ</span>
+          <span class="wire-status">UPDATED: [TIME]</span>
+        </div>
+
+        <div class="wire-content">
+
+          <div class="result-heading">
+
+            <h2>
+              AI agents
+            </h2>
+
+            <span class="profile-label">
+              [SIGNAL PROFILE]
+            </span>
+
+          </div>
+
+          <div class="signal-grid">
+
+            <section class="signal-card">
+
+              <h3>BUILD / GITHUB</h3>
+
+              <strong class="signal-value">
+                [± CHANGE]
+              </strong>
+
+              <p class="signal-meta">
+                New repositories: current 30 days compared
+                with the previous 30 days.
+              </p>
+
+            </section>
+
+            <section class="signal-card">
+
+              <h3>BUZZ / HACKER NEWS</h3>
+
+              <strong class="signal-value">
+                [± CHANGE]
+              </strong>
+
+              <p class="signal-meta">
+                Stories: current 30 days compared with the
+                previous 30 days.
+              </p>
+
+            </section>
+
+          </div>
+
+          <div class="source-preview">
+            <p>[TOP GITHUB RESULT + SOURCE LINK]</p>
+            <p>[TOP HACKER NEWS RESULT + SOURCE LINK]</p>
+          </div>
+
+        </div>
+
+        <p class="flow-note">
+          Counts are compared only within each source.
+          The profile is an explained heuristic, not proof
+          of market demand.
+        </p>
+
+      </article>
+
+      <article class="frame">
+
+        <p class="frame-label">
+          STATE 04 / PARTIAL OR FAILED RESULT
+        </p>
+
+        <div class="wire-header">
+          <span class="wire-logo">BUILD VS BUZZ</span>
+          <span class="wire-status">PARTIAL RESULT</span>
+        </div>
+
+        <div class="wire-content">
+
+          <h2>
+            One signal is unavailable.
+          </h2>
+
+          <div class="warning">
+
+            <h3>
+              GitHub could not be reached.
+            </h3>
+
+            <p>
+              Hacker News results can still be shown, but
+              the app cannot classify the combined signal
+              until both sources are available.
+            </p>
+
+          </div>
+
+          <div class="retry-button">
+            Try again
+          </div>
+
+        </div>
+
+        <p class="flow-note">
+          Partial data is labelled clearly. The app never
+          replaces missing API data with invented values.
+        </p>
+
+      </article>
+
+    </section>
+
+    <section class="method-map">
+
+      <p class="annotation-label">
+        PROTOTYPE LOGIC
+      </p>
+
+      <h2>
+        How the two sources become one answer
+      </h2>
+
+      <div class="method-grid">
+
+        <article>
+          <h3>01 / BUILD SIGNAL</h3>
+          <p>
+            GitHub repositories created in the latest
+            30-day period versus the preceding 30 days.
+          </p>
+        </article>
+
+        <article>
+          <h3>02 / BUZZ SIGNAL</h3>
+          <p>
+            Hacker News stories published in the latest
+            30-day period versus the preceding 30 days.
+          </p>
+        </article>
+
+        <article>
+          <h3>03 / PROFILE</h3>
+          <p>
+            The direction of both changes creates a
+            transparent descriptive signal profile.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

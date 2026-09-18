@@ -4,7 +4,8 @@
   "private": true,
   "description": "Educational web scraping project for the Berghs Growth Marketing portfolio.",
   "scripts": {
-    "scrape": "node scraper.js",
+    "check:scraper": "node --check --input-type=commonjs < scraper.txt",
+    "scrape": "node --input-type=commonjs < scraper.txt",
     "validate": "node validate.js",
     "build:data": "npm run scrape && npm run validate"
   },
